@@ -1,13 +1,16 @@
 import os
-from pathlib import Path  # Import Path
+from pathlib import Path
+from decouple import config  # If you're using python-decouple
 
 # Define BASE_DIR as a Path object
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Security settings (change these in production)
-SECRET_KEY = 'your-secret-key-here'
-DEBUG = True
-ALLOWED_HOSTS = []
+# Security settings
+SECRET_KEY = config('SECRET_KEY', default='your-default-secret-key')  # Use environment variable
+DEBUG = False  # Set to False for production
+
+# Allowed hosts (update with your Vercel deployment URL)
+ALLOWED_HOSTS = ['.app']  # Replace with your actual domain
 
 # Application definition
 INSTALLED_APPS = [
@@ -18,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'spam_app',  # Ensure your app is listed here
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -35,7 +39,7 @@ ROOT_URLCONF = 'spam.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'spam_app' / 'templates'],  # Use Path here
+        'DIRS': [BASE_DIR / 'spam_app' / 'templates'],  # Ensure this points to your templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -50,11 +54,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'spam.wsgi.application'
 
-# Database configuration
+# No database required for this application
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',  # Use Path here
+        'ENGINE': 'django.db.backends.sqlite3',  # Use if needed, otherwise comment out
+        'NAME': BASE_DIR / 'db.sqlite3',  # Comment out if not using
     }
 }
 
@@ -83,7 +87,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'spam_app' / 'static']  # Ensure this is a Path
+
+# Vercel specific static file settings
+STATICFILES_DIRS = [BASE_DIR / 'spam_app' / 'static']  # Where to find static files
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Where to collect static files
+
+# Ensure Whitenoise is included in your middleware
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 # Default auto field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
