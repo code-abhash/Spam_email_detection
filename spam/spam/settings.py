@@ -1,4 +1,4 @@
-import os
+
 from pathlib import Path
 
 
@@ -10,14 +10,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-import os
-from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+SECRET_KEY = 'SECRET_KEY'
+DEBUG = False
 
 
 
