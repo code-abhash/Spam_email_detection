@@ -1,13 +1,25 @@
 import os
 from pathlib import Path
-from decouple import config  # If you're using python-decouple
+
 
 # Define BASE_DIR as a Path object
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings
-SECRET_KEY = config('SECRET_KEY', default='your-default-secret-key')  # Use environment variable
-DEBUG = False  # Set to False for production
+# settings.py
+
+
+
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
+
 
 # Allowed hosts (update with your Vercel deployment URL)
 ALLOWED_HOSTS = [' * ']  # Replace with your actual domain
