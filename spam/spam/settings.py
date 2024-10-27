@@ -10,7 +10,7 @@ SECRET_KEY = config('SECRET_KEY', default='your-default-secret-key')  # Use envi
 DEBUG = False  # Set to False for production
 
 # Allowed hosts (update with your Vercel deployment URL)
-ALLOWED_HOSTS = ['https://spam-email-detection-ab37.onrender.com']  # Replace with your actual domain
+ALLOWED_HOSTS = [' * ']  # Replace with your actual domain
 
 # Application definition
 INSTALLED_APPS = [
