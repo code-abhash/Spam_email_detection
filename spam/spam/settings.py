@@ -12,13 +12,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-SECRET_KEY = 'SECRET_KEY'
-DEBUG = False
+SECRET_KEY = 'ath!5052_d9^8)j9o@1h+o^w%r3zaqyr8q#g8l(5u&8)!q^x1u'
+DEBUG =False
 
 
 
 # Allowed hosts (update with your Vercel deployment URL)
-ALLOWED_HOSTS = [' * ']  # Replace with your actual domain
+ALLOWED_HOSTS = ['*']  # Replace with your actual domain
 
 # Application definition
 INSTALLED_APPS = [
