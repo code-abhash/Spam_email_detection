@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'spam_app',  # Ensure your app is listed here
+    'spam.spam_app',  # Ensure your app is listed here
     'whitenoise.runserver_nostatic',
 ]
 
