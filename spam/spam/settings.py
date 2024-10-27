@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 SECRET_KEY = 'ath!5052_d9^8)j9o@1h+o^w%r3zaqyr8q#g8l(5u&8)!q^x1u'
-DEBUG =False
+DEBUG =True
 
 
 
@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'spam.spam_app',  # Ensure your app is listed here
+    'spam_app',  # Ensure your app is listed here
     'whitenoise.runserver_nostatic',
 ]
 

@@ -1,12 +1,10 @@
 from django.shortcuts import render
-
-# Create your views here.
 import os
 import joblib
 from django.shortcuts import render
 from django.conf import settings
 
-# Load the models from the static folder
+
 MODEL_PATH = os.path.join(settings.BASE_DIR,'spam_app', 'static', 'Nave_Bayes.pkl')
 VECTORIZER_PATH = os.path.join(settings.BASE_DIR,'spam_app', 'static', 'Vec_log_regr.pkl')
 
@@ -18,9 +16,7 @@ def predict_email(request):
     if request.method == 'POST':
         email_content = request.POST.get('email_content')
         if email_content:
-            # Vectorize the input
             email_vector = vectorizer.transform([email_content])
-            # Predict using the model
             is_spam = model.predict(email_vector)[0]
             prediction = "Spam" if is_spam else "Not Spam"
     
