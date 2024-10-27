@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background */
+    color: #333; /* Dark text */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #2c3e50; /* Dark blue color for the heading */
+}
+
+form {
+    width: 60%;
+    background-color: #fff; /* White background for the form */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+label {
+    font-weight: bold;
+    color: #34495e; /* Darker color for labels */
+}
+
+textarea {
+    width: 80%; /* Full width */
+    padding: 10px; /* Padding inside the textarea */
+    border: 1px solid #bdc3c7; /* Light gray border */
+    border-radius: 4px; /* Slightly rounded corners */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+button {
+    background-color: #3498db; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+h2 {
+    color: #27ae60; /* Green color for prediction result */
+}
+
+p {
+    font-size: 18px; /* Larger font size for the result */
+}
